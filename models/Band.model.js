@@ -1,16 +1,16 @@
 const { Schema, model} = require('mongoose')
 
 const bandSchema = new Schema({
-    name: String,
-    genre: String,
-    country: String,
-    imageUrl: String
-
-},
-    {
-        timestamps:true
-    }
-);
+    username: {
+        type: String,
+        required: true,
+        unique:true
+    },
+    password: {
+        type:String,
+        required:true
+    },
+});
 
 const Band = model('Band', bandSchema);
 
