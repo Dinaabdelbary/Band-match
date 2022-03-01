@@ -14,7 +14,12 @@ const musicianSchema = new Schema({
     email: {
         type:String
     } ,
-    band: [{type: Schema.Types.ObjectId, ref: Band}]
+    imageUrl:{
+        type:String,
+        // default: ///
+    },
+    band: [{type: Schema.Types.ObjectId, ref:Band}],
+    lookingFor: [String]
 });
 
 const Musician = model('Musician', musicianSchema);

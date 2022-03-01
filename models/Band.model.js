@@ -1,15 +1,25 @@
-const { Schema, model} = require('mongoose')
+const { Schema, model} = require('mongoose');
+const Musician = require('./Musician.model');
+
 
 const bandSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique:true
+    genre: {
+        type: [String],
+        required: false,
     },
-    password: {
+    mediaLinks: {
+        type:[String]
+    },
+    description: {
         type:String,
-        required:true
+        required:false
     },
+    imageUrl:{
+        type:String,
+        // default: ///
+    },
+    member: [{type: Schema.Types.ObjectId, ref:Musician}],
+    lookingFor: [String]
 });
 
 const Band = model('Band', bandSchema);
