@@ -15,11 +15,9 @@ body{
   padding-left: 60%;
   background-color: #EEEBDD;
   overflow: hidden;
- 
 }
 
 .bg-img {
- 
   background-image: url("./../images/rima.jpg");
     min-height: 800px
 }
