@@ -1,12 +1,70 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00b7ff;
+body{
+  background-color: #EEEBDD;
 }
 
-h1 {
-  color: 15px;
+.nav{
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  align-items: center;
+  margin: auto;
+  padding-left: 60%;
+  background-color: #EEEBDD;
+  overflow: hidden;
+ 
 }
+
+.bg-img {
+ 
+  background-image: url("./../images/rima.jpg");
+    min-height: 800px
+}
+
+.container {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+.form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* in case I need a separate tag for the form */
+background: rgba(255, 255, 255, 0.06);
+padding: 3em;
+height: 320px;
+border-radius: 10px;
+border-left: 2px rgba(255, 255, 255, 0.03);
+border-top: 2px rgba(255, 255, 255, 0.03);
+/* backdrop-filter: blur(10px);  test on home page */
+box-shadow: 10px 10px 40px -6px;
+text-align: center;
+
+}
+
+h2{
+  color: #D8B6A4ls;
+}
+
+
