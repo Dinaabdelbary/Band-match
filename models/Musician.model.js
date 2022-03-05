@@ -23,7 +23,11 @@ const musicianSchema = new Schema(
         // default: ///
     },
     band: [{type: Schema.Types.ObjectId, ref:Band}],
-    lookingFor: [String]
+    lookingFor: [String],
+    instruments:[String],
+    mediaLinks:[String],
+    description: [String],
+    genres:[String]
   },
   {
     timestamps: true
