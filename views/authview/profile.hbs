@@ -1,17 +1,25 @@
 <div>
 <h1>Profile {{username}}</h1>
-<form action="" method="post" enctype="multipart/form-data">
-    <label for="name">Enter your name: </label>
-    <input type="text" name="name" id="name">
+<form action="/musicians/edit/{{_id}}" method="post" enctype="multipart/form-data">
+    <label for="username">Enter your name: </label>
+    <input type="text" value={{username}} name="username" id="username">
+    <br>
     <label for="img">Image: </label>
     <input type="file" name="image" id="image">
-    <label for="name">Instrument: </label>
-    <input type="text" name="instrument" id="instrument">
+    <br>
+    <label for="instrument">Instrument: </label>
+    <input type="text" name="instruments" id="instrument">
+    <br>
     <label for="mediaLinks">Media Links: </label>
     <input type="text" name="mediaLinks" id="mediaLinks">
+    <br>
+    <label for="genres"> Genre: </label>
+    <input type="text" name="genres" id="genre">
+    <br>
     <label for="description">Description: </label>
-    <textarea name="description" id="description" cols="30" rows="10">Description</textarea>
-
+    <textarea name="description" id="description" cols="30" rows="5"></textarea>
+     <br>
+     <button type="submit">Update profile</button>
   </div>
 
 </form>

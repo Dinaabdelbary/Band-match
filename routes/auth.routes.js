@@ -95,9 +95,9 @@ router.post('/logout', (req, res)=>{
 })
 
 
-router.get('/profile', (req, res) => {
-    res.render('authview/profile');
-});
+// router.get('/profile', (req, res) => {
+//     res.render('authview/profile');
+// });
 
 
 
