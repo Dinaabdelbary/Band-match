@@ -7,7 +7,7 @@ const Musician = require('../models/Musician.model')
 const saltRounds = 10;
 
 ////////////Sign up//////////////////
-router.get('/signup', (req, res) => {
+router.get('/auth/signup', (req, res) => {
     res.render('authview/signup');
 });
 
@@ -52,12 +52,12 @@ router.post('/auth/signup', (req, res) => {
 });
 
 //////////////LogIn///////////////
-router.get('/login', (req, res) => {
+router.get('/auth/login', (req, res) => {
     res.render('authview/login');
 });
 
 router.post('/auth/login', (req, res) =>{
-    console.log(req.session)
+    console.log("=====>",req.session)
     const { username, password } = req.body
 
     if (username === '' || password === '') {

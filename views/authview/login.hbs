@@ -1,20 +1,17 @@
 
-
+<div>
 
 <form action="/auth/login" method="post">
-<label> Username:
-<input type="text" name="username" placeholder="Username"> 
- </label>
-<br>
-<label> Password:
-<input type="password" name="password" placeholder="Password"> 
-</label>
-<br>
+<p>Welcome</p>
+<input type="text" name="username" placeholder="Username"><br>
+<input type="password" name="password" placeholder="Password"><br>
+<button type="button" value="Login">Log in</button><br>
 <button type="submit">Log in</button>
 
 {{#if errorMessage}}
     <p>{{errorMessage}}</p>
-    {{/if}}
+ {{/if}}
+
 </form>
 
 </div>
