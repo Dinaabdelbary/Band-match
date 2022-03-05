@@ -1,14 +1,16 @@
 
-<body>
+
 <div class="form">
 
 <form action="/auth/signup" method="post">
+
 <p>Sign up</p>
 <input type="text" name="username" placeholder="Username"><br>
 <input type="text" name="email" placeholder="email@domain.com"><br>
 
 <input type="password" name="password" placeholder="Password"><br>
 <button type="submit">Sing up</button><br>
+
 <a href="/login">Already a member?</a>
 
 {{#if errorMessage}}
@@ -17,5 +19,3 @@
 </form>
 
 </div>
-
-</body>

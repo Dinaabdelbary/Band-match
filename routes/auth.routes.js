@@ -84,6 +84,16 @@ router.post('/auth/login', (req, res) =>{
               });
 })
 
+router.post('/logout', (req, res)=>{
+    req.session.destroy(error =>{
+        if(error){
+            console.log(error)
+        } else {
+            res.redirect('/')
+        }
+    })
+})
+
 
 router.get('/profile', (req, res) => {
     res.render('authview/profile');
