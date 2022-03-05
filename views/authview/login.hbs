@@ -1,15 +1,16 @@
 
-
-
-    
- <div class="form">
+<div>
 
 <form action="/auth/login" method="post">
 <p>Welcome</p>
 <input type="text" name="username" placeholder="Username"><br>
 <input type="password" name="password" placeholder="Password"><br>
 <button type="button" value="Login">Log in</button><br>
-<a href="#">Forgot your password?</a>
+<button type="submit">Log in</button>
+
+{{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+ {{/if}}
 
 </form>
 
