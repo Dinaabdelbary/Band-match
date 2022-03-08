@@ -14,7 +14,7 @@ router.get('/musicianProfile', (req, res) => {
         }).catch(error => console.log(error))
 });
 
-router.get('/create', (req, res) => {
+router.get('/profile', (req, res) => {
     res.render('authview/profile');
 });
 

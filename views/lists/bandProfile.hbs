@@ -1,1 +1,29 @@
 <h1>Bands</h1>
+
+<h2>{{band.username}}</h2>
+<img src="{{band.imageUrl}}" alt="{{username}}" srcset="">
+
+<p>
+    {{#each band.member}} 
+    {{this}}
+    {{/each}}
+</p>
+
+
+<p>
+    {{#each band.genres}} 
+    {{this}}
+    {{/each}}
+</p>
+<p>
+    {{#each band.mediaLinks}} 
+    {{this}}
+    {{/each}}
+</p>
+<p>
+    {{#each band.description}} 
+    {{this}}
+    {{/each}}
+</p>
+
+
