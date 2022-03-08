@@ -26,7 +26,7 @@ const musicianSchema = new Schema(
     lookingFor: [String],
     instruments:[String],
     mediaLinks:[String],
-    description: [String],
+    description: String,
     genres:[String]
   },
   {

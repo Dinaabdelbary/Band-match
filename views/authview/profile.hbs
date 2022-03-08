@@ -3,10 +3,11 @@
 <form action="/musicians/edit/{{_id}}" method="post" enctype="multipart/form-data">
     <label for="username">Enter your name: </label>
     <input type="text" value={{username}} name="username" id="username">
-    <br>
+    <br>  
     <label for="img">Image: </label>
     <input type="file" name="image" id="image">
     <br>
+    {{!-- pass in value so render previous details on form --}}
     <label for="instrument">Instrument: </label>
     <input type="text" name="instruments" id="instrument">
     <br>
