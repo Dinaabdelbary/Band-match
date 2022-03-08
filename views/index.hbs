@@ -18,12 +18,13 @@
       <a href="/musicians/list">Musicians</a>
       <a href="/bands/list">Bands</a>
       {{#if musician}}
-      <form id="logout-form" action="/logout" method="POST">
-         <button>Logout</button>
-      </form>
       <a href="/band-profile">Band-profile</a>
       <a href="/musicians/musicianProfile">Profile of Musician</a>
 
+      <form id="logout-form" action="/logout" method="POST">
+         <button>Logout</button>
+      </form>
+     
       {{else}}
       <a href="/auth/signup">Sign up</a>
       <a href="/auth/login">Login</a>
