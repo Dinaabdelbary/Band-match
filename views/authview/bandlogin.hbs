@@ -1,0 +1,17 @@
+
+<div class="form">
+
+<form action="/auth/login" method="post">
+
+<p>Log in</p>
+<input type="text" name="bandname" placeholder="bandname"><br>
+<input type="password" name="password" placeholder="Password"><br>
+<button type="submit">Log in</button><br>
+
+
+{{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+    {{/if}}
+</form>
+
+</div>

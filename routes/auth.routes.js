@@ -33,6 +33,7 @@ router.post('/auth/signup', (req, res) => {
       })
       .then(musicianFrDB => {
             // console.log(musicianFrDB)
+            req.session.currentUser = musicianFrDB
             res.redirect('/')  // might redirect to other page
       })
       .catch(error => {
