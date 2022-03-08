@@ -17,8 +17,19 @@
       <a href="#about">About</a>
       <a href="/musicians/list">Musicians</a>
       <a href="/bands/list">Bands</a>
+      {{#if musician}}
+      <form id="logout-form" action="/logout" method="POST">
+         <button>Logout</button>
+      </form>
+      <a href="/band-profile">Band-profile</a>
+      <a href="/musicians/musicianProfile">Profile of Musician</a>
+
+      {{else}}
       <a href="/auth/signup">Sign up</a>
       <a href="/auth/login">Login</a>
+
+      {{/if}}
+      
     </div>
   </div>
 
@@ -28,13 +39,7 @@
 {{#if musician}}
   <h2>Welcome, {{ musician.username }}!</h2>
   <p>This is your profile page my friend!</p>
-  <a href="/profile">Musician-Profile</a>
-  <a href="/bands/band-profile">Band-profile</a>
-   <form id="logout-form" action="/logout" method="POST">
-    <button class="buttons">Logout</button>
-  </form>
 
- 
 {{else}}
   <p>Still no logged in musician, sorry!</p>
 {{/if}}

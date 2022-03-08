@@ -20,10 +20,11 @@ router.get('/profile', (req, res) => {
 
 router.post('/edit/:id', fileUploader.single('image'), (req, res) => {
     const {id} = req.params
-    const { username, instruments, mediaLinks, genres, description } =req.body
+    const { username, instruments, mediaLinks, genres, description } = req.body
     console.log('post here',instruments,)
+    let newInstruments  = instruments.split(" ");
 
-    Musician.findOneAndUpdate({_id: id}, { username, instruments, mediaLinks, genres, description,  imageUrl: req.file?.path })
+    Musician.findOneAndUpdate({_id: id}, { username, instruments :newInstruments, mediaLinks, genres, description,  imageUrl: req.file?.path })
         .then(createdMusicainFrDB => {
             console.log(createdMusicainFrDB)
             res.redirect('/musicians/musicianProfile')
