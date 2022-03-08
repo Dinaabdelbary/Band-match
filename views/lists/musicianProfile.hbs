@@ -1,4 +1,6 @@
-<h1>Musicians</h1>
+<h1>Musician Profile</h1>
+
+<img src="{{musician.imageUrl}}" alt="{{username}}" srcset=""style="height:250px;width:200px;">
 <h2>{{musician.username}}</h2>
 <img src="{{musician.imageUrl}}" alt="{{username}}" srcset="">
 <p>{{musician.mediaLinks}}</p>
@@ -8,3 +10,32 @@
 {{/each}}
 <br>
  <a href="/profile">Update musician</a>
+
+<p>
+    {{#each musician.bands}} 
+    {{this}}
+    {{/each}}
+</p>
+
+<p>
+    {{#each musician.instruments}} 
+    {{this}}
+    {{/each}}
+</p>
+
+<p>
+    {{#each musician.genres}} 
+    {{this}}
+    {{/each}}
+</p>
+<p>
+    {{#each musician.mediaLinks}} 
+    {{this}}
+    {{/each}}
+</p>
+<p>
+    {{#each musician.description}} 
+    {{this}}
+    {{/each}}
+</p>
+

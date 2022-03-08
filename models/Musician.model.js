@@ -22,11 +22,11 @@ const musicianSchema = new Schema(
         type:String,
         // default: ///
     },
-    band: [{type: Schema.Types.ObjectId, ref:Band}],
+    bands: [{type: Schema.Types.ObjectId, ref:Band}],
     lookingFor: [String],
     instruments:[String],
     mediaLinks:[String],
-    description: String,
+    description:[String],
     genres:[String]
   },
   {

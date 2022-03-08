@@ -1,7 +1,6 @@
 const { Schema, model} = require('mongoose');
 const Musician = require('./Musician.model');
 
-
 const bandSchema = new Schema({
     genre: {
         type: [String],
