@@ -2,14 +2,14 @@
 <h1>Profile {{username}}</h1>
 <form action="/musicians/edit/{{_id}}" method="post" enctype="multipart/form-data">
     <label for="username">Enter your name: </label>
-    <input type="text" value={{username}} name="username" id="username">
+    <input type="text" value="{{musician.username}}" name="username" id="username">
     <br>  
     <label for="img">Image: </label>
     <input type="file" name="image" id="image">
     <br>
-    {{!-- pass in value so render previous details on form --}}
+
     <label for="instrument">Instrument: </label>
-    <input type="text" name="instruments" id="instrument">
+    <input type="text" value="{{musician.instruments}}" name="instruments" id="instrument">
     <br>
     <label for="mediaLinks">Media Links: </label>
     <input type="text" name="mediaLinks" id="mediaLinks">

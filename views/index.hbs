@@ -17,19 +17,11 @@
       <a href="#about">About</a>
       <a href="/musicians/list">Musicians</a>
       <a href="/bands/list">Bands</a>
-<<<<<<< HEAD
 
-      {{#if musician}} 
+      {{#if loggedinuser}} 
       <a href="/musicians/musicianProfile">Musician's profile</a>
       <a href="/band-profile">Band profile</a>
       
-      
-=======
-      {{#if musician}}
-      <a href="/band-profile">Band-profile</a>
-      <a href="/musicians/musicianProfile">Profile of Musician</a>
->>>>>>> f3749a32da87a70c2f6112099f0dbfa3a1692179
-
       <form id="logout-form" action="/logout" method="POST">
          <button>Logout</button>
       </form>
