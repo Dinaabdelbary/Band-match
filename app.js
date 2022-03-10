@@ -44,8 +44,8 @@ app.use('/', authRoutes);
 const authBandRoutes = require('./routes/authband.routes');
 app.use('/', authBandRoutes);
 
-const profileRoutes = require('./routes/auth.routes');
-app.use('/', profileRoutes);
+// const profileRoutes = require('./routes/auth.routes');
+// app.use('/', profileRoutes);
 
 const preSignupRoute = require('./routes/presignup.routes');
 app.use("/", preSignupRoute);

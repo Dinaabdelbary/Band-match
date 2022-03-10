@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const Musician = require("../models/Musician.model.js");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -13,7 +14,14 @@ router.get('/profile', (req, res) => {
   if(!currentUser){
         res.redirect('/authview/login')
    }
-    res.render('authview/profile', currentUser)
+
+   Musician.findById(req.session.currentUser._id).then((musicianFrDB) => {
+     console.log("musicianFrDB",musicianFrDB);
+    res.render("authview/profile", {
+      musician: musicianFrDB,
+    });
+});
+
 })
 
 
