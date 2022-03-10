@@ -1,14 +1,21 @@
+
+<div class="side-bar">
+    <aside>
+
 <h1>Musician Profile</h1>
 
-<img src="{{musician.imageUrl}}" alt="{{username}}" srcset=""style="height:250px;width:200px;">
+<div class="userimg">
+    <img src="{{musician.imageUrl}}" alt="{{username}}" srcset=""style="height:250px;width:200px;">
+</div>
+<ul>
 <h2>{{musician.username}}</h2>
-<p>{{musician.mediaLinks}}</p>
+<p>
+    {{#each musician.description}} 
+    {{this}}
+    {{/each}}
+</p>
 
-{{#each musician.instruments}}
- {{this}}
-{{/each}}
 <br>
- <a href="/profile">Update musician</a>
 
 <p>
     {{#each musician.bands}} 
@@ -32,9 +39,14 @@
     {{this}}
     {{/each}}
 </p>
-<p>
-    {{#each musician.description}} 
-    {{this}}
-    {{/each}}
-</p>
+
+<p>{{musician.mediaLinks}}</p>
+
+<a href="/profile">Update musician</a>
+
+</ul> 
+
+</aside>
+</div>
+
 

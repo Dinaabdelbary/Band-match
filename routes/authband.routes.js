@@ -50,11 +50,11 @@ router.post('/auth/bandsignup', (req, res) => {
 
 });
 
-router.get('/auth/login', (req, res) => {
+router.get('/auth/bandlogin', (req, res) => {
     res.render('authview/bandlogin');
 });
 
-router.post('/auth/login', (req, res) =>{
+router.post('/auth/bandlogin', (req, res) =>{
     console.log("=====>",req.session)
     const { bandname, password } = req.body
 

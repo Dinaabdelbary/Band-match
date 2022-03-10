@@ -47,8 +47,12 @@ app.use('/', authBandRoutes);
 const profileRoutes = require('./routes/auth.routes');
 app.use('/', profileRoutes);
 
-    const preSignupRoute = require('./routes/presignup.routes');
-    app.use("/", preSignupRoute);
+const preSignupRoute = require('./routes/presignup.routes');
+app.use("/", preSignupRoute);
+
+const preLoginRoute = require('./routes/prelogin.routes');
+app.use("/", preLoginRoute);
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
