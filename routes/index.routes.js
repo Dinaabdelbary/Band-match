@@ -4,7 +4,8 @@ const router = require("express").Router();
 router.get("/", (req, res, next) => {
   console.log(req.session)
   const {currentUser} = req.session
-  res.render("index", {musician: currentUser});
+  res.render("index", {loggedinuser: currentUser})
+  console.log(currentUser)
 });
 
 router.get('/profile', (req, res) => {
