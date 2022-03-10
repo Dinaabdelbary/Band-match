@@ -27,12 +27,18 @@ const musicianSchema = new Schema(
     instruments:[String],
     mediaLinks:[String],
     description:[String],
-    genres:[String]
-  },
-  {
-    timestamps: true
-  }
-);
+    genres:[String],
+
+    pendingRequests: { 
+        type: Schema.Types.ObjectId
+    },
+    successfulMatch: {
+        type: Schema.Types.ObjectId
+    },
+    notifications: {
+        type: Schema.Types.Mixed
+    }
+  });
 
 const Musician = model('Musician', musicianSchema);
 

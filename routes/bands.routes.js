@@ -25,5 +25,13 @@ router.get('/bandProfile', (req, res) => {
         })
         .catch(error => console.log(error))
     })
+    router.get('/listofbands', (req, res) => {
+        // res.render('lists/bandProfile')
+    
+        Band.find()
+        .then(bands => res.render("authview/listofbands", {bands}))
+        //console.log(bands)
+        .catch(error =>  console.log(error))
+    });
 
 module.exports = router;

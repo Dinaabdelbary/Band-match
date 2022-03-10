@@ -82,6 +82,8 @@ router.post('/auth/bandlogin', (req, res) =>{
               });
 })
 
+
+
 router.post('/logout', (req, res)=>{
     req.session.destroy(error =>{
         if(error){

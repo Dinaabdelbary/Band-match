@@ -29,12 +29,31 @@ const bandSchema = new Schema({
         type:String,
         required:false
     },
+
     imageUrl:{
         type:String,
         // default: ///
     },
+    pendingRequests: { 
+        type: Schema.Types.ObjectId
+    },
+    successfulMatch: {
+        type: Schema.Types.ObjectId
+    },
+    notifications: {
+        type: Schema.Types.Mixed
+    },
     member: [{type: Schema.Types.ObjectId, ref:Musician}],
-    lookingFor: [String]
+    lookingFor: [String],
+    pendingRequests: { 
+        type: Schema.Types.ObjectId
+    },
+    successfulMatch: {
+        type: Schema.Types.ObjectId
+    },
+    notifications: {
+        type: Schema.Types.Mixed
+    }
 });
 
 const Band = model('Band', bandSchema);

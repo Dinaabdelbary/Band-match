@@ -32,4 +32,9 @@ router.post('/edit/:id', fileUploader.single('image'), (req, res) => {
         .catch(error => console.log(error))
 })
 
+router.get('/listofmusicians', (req, res) => {
+
+    Musician.find()
+    .then(musicians => res.render("authview/listofmusicians", {musicians}))
+})
 module.exports = router;

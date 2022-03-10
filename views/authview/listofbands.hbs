@@ -1,0 +1,14 @@
+
+ 
+
+ {{#each bands}} 
+    {{this.imageUrl}}
+    {{this.bandname}}
+    {{this.members}}
+    {{this.genre}}
+    <a href="/musicianprofile/{{this._id}}">See profile</a>    {{!-- create pages to redirect to links --}}
+    {{/each}}
+
+
+
+{{!-- create a card --}}
