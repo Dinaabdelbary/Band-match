@@ -30,15 +30,15 @@ const musicianSchema = new Schema(
     genres: String,
 
     pendingRequests: [{ 
-        type: Schema.Types.ObjectId
+        type: Schema.Types.ObjectId, ref: "Musician"
     }],
 
     successfulMatch: [{
-        type: Schema.Types.ObjectId
+        type: Schema.Types.ObjectId, ref: "Musician"
     }],
     
     notifications: [{
-        type: Schema.Types.Mixed
+        type: Schema.Types.Mixed, ref: "Musician"
     }]
   });
 

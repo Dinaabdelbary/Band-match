@@ -12,6 +12,16 @@
 
 <br>
 
+{{#if notifications}}
+{{#each notifications}}
+<div>
+    <p>{{this.username}} wants to connect !</p>
+    <a href="/connect/accept/{{this._id}}">Accept</a>
+    <a href="/connect/decline/{{this._id}}">Decline</a>
+</div>
+{{/each}}
+{{/if}}
+
 <p>
     {{#each musician.bands}} 
     {{this}}
@@ -36,20 +46,29 @@
 </p>
 
 <p>{{musician.mediaLinks}}</p>
+
 {{#if isMyself}}
 <a href="/profile/edit">Update My Profile</a>
 
 {{else}}
+
+
+{{#unless isMatch}}
 <form action="/connect/{{musician._id}}" method="get">
+
 {{#if isPending}}
 
 <button disabled>Pending...</button>
+
 {{else}}
+
 <button type="submit"> Connect </button>
 
 {{/if}}
 
 </form>
+{{/unless}}
+
 
 {{/if}}
 </ul> 
