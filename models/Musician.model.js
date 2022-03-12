@@ -29,17 +29,17 @@ const musicianSchema = new Schema(
     description: String,
     genres: String,
 
-    pendingRequests: { 
+    pendingRequests: [{ 
         type: Schema.Types.ObjectId
-    },
+    }],
 
-    successfulMatch: {
+    successfulMatch: [{
         type: Schema.Types.ObjectId
-    },
+    }],
     
-    notifications: {
+    notifications: [{
         type: Schema.Types.Mixed
-    }
+    }]
   });
 
 const Musician = model('Musician', musicianSchema);

@@ -40,7 +40,17 @@
 <a href="/profile/edit">Update My Profile</a>
 
 {{else}}
-<button> Connect </button>
+<form action="/connect/{{musician._id}}" method="get">
+{{#if isPending}}
+
+<button disabled>Pending...</button>
+{{else}}
+<button type="submit"> Connect </button>
+
+{{/if}}
+
+</form>
+
 {{/if}}
 </ul> 
 

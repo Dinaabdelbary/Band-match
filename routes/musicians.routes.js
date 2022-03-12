@@ -41,9 +41,11 @@ router.get("/profile/:id", (req, res) => {
   const { id } = req.params
   Musician.findById(id)
   .then((musicianFrDB) => {
+    const isPending = musicianFrDB.notifications.includes(req.session.currentUser._id)
       res.render("profile/musicianProfile.hbs", {
         musician: musicianFrDB,
-        isMyself: id === req.session.currentUser._id
+        isMyself: id === req.session.currentUser._id,
+        isPending
       });
   }).catch(err => console.log(err));
 });
