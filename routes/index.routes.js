@@ -9,20 +9,7 @@ router.get("/", (req, res, next) => {
   console.log(currentUser)
 });
 
-router.get('/profile', (req, res) => {
-  const {currentUser} = req.session;
-  if(!currentUser){
-        res.redirect('/authview/login')
-   }
 
-   Musician.findById(req.session.currentUser._id).then((musicianFrDB) => {
-     console.log("musicianFrDB",musicianFrDB);
-    res.render("authview/profile", {
-      musician: musicianFrDB,
-    });
-});
-
-})
 
 
 router.get('/discover', (req, res) => {

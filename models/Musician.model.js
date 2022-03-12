@@ -23,18 +23,20 @@ const musicianSchema = new Schema(
         // default: ///
     },
     bands: [{type: Schema.Types.ObjectId, ref:Band}],
-    lookingFor: [String],
+    lookingFor: String,
     instruments: String,
-    mediaLinks:[String],
-    description:[String],
-    genres:[String],
+    mediaLinks: String,
+    description: String,
+    genres: String,
 
     pendingRequests: { 
         type: Schema.Types.ObjectId
     },
+
     successfulMatch: {
         type: Schema.Types.ObjectId
     },
+    
     notifications: {
         type: Schema.Types.Mixed
     }

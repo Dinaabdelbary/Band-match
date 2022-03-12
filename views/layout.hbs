@@ -12,6 +12,35 @@
 
    <body>
 
+      <div class="topnav">
+       <h2>Band Match</h2>
+      <a href="/">Home</a>
+      <a href="/musicians/listofmusicians">Musicians</a>
+      <a href="/bands/listofbands">Bands</a>
+
+      {{#if loggedinuser}} 
+      <a href="/profile/{{loggedinuser._id}}">My Profile</a>
+      <a href="/band-profile">Band profile</a>
+      
+     <form id="logout-form" action="/logout" method="POST">
+         <button class="buttons">Logout</button>
+      </form>
+     
+      {{else}}
+      <a href="/auth/presignup">Sign up</a>
+      <a href="/auth/prelogin">Login</a>
+
+      {{/if}}
+
+      {{!-- {{#if band}}
+      <h2>Welcome, {{ band.bandname }}!</h2>
+
+      {{/if}} --}}
+      
+    </div>
+  </div>
+
+
       {{{body}}}
 
       <script src="/js/script.js"></script>

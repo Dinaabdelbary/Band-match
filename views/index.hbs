@@ -11,55 +11,25 @@
 
 <div class="bg-img">
   <div class="container">
-    <div class="topnav">
-       <h2>Band Match</h2>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="/musicians/list">Musicians</a>
-      <a href="/bands/list">Bands</a>
+    
+  
 
-      {{#if loggedinuser}} 
-      <a href="/musicians/musicianProfile">Musician's profile</a>
-      <a href="/band-profile">Band profile</a>
-      
-      <form id="logout-form" action="/logout" method="POST">
-         <button>Logout</button>
-      </form>
-     
-      {{else}}
-      <a href="/auth/presignup">Sign up</a>
-      <a href="/auth/prelogin">Login</a>
+ <div class="maincontent">
 
-      {{/if}}
+ {{#if loggedinuser}}
 
-      {{!-- {{#if band}}
-      <h2>Welcome, {{ band.bandname }}!</h2>
-
-      {{/if}} --}}
-      
-    </div>
-  </div>
-
-  <form id="logout-form" action="/logout" method="POST">
-         <button class="buttons">Logout</button>
-      </form>
-
-
-<div class="maincontent">
-
-{{#if loggedinuser}}
   <h2>Welcome, {{ loggedinuser.bandname }} {{loggedinuser.username}}!</h2>
   <p>This is your profile page my friend!</p>
+  
 
-{{else}}
+ {{else}}
   <p>Still no logged in musician, sorry!</p>
-{{/if}}
+ {{/if}}
 
-</div>
+ </div>
 
-</div>
+ </div>
 
-</body>
 
  <footer>
 <div class="footer-content">
@@ -75,3 +45,7 @@
   </div>
 </ul>
   </footer>
+
+
+
+</body>

@@ -32,7 +32,7 @@ const index = require("./routes/index.routes");
 app.use("/", index);
 
 const musiciansRoutes = require("./routes/musicians.routes");
-app.use('/musicians', musiciansRoutes);
+app.use('/', musiciansRoutes);
 
 const bandsRoutes = require("./routes/bands.routes.js");
 app.use('/bands', bandsRoutes);
