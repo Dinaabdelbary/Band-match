@@ -25,4 +25,15 @@ router.get('/profile', (req, res) => {
 })
 
 
+router.get('/discover', (req, res) => {
+  Musician.find()
+  .then(musiciansFrDB => 
+    res.render('lists/discover',{musiciansFrDB}))
+  .catch(error =>  console.log(error))
+
+})
+
+
+
+
 module.exports = router;

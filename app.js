@@ -44,6 +44,9 @@ app.use('/', authRoutes);
 const authBandRoutes = require('./routes/authband.routes');
 app.use('/', authBandRoutes);
 
+const discoverRoutes = require('./routes/index.routes');
+app.use('/', discoverRoutes);
+
 // const profileRoutes = require('./routes/auth.routes');
 // app.use('/', profileRoutes);
 

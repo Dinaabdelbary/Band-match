@@ -1,0 +1,38 @@
+
+
+    {{!-- {{#each musiciansFrDB}} 
+    <div>
+     <img src="{{this.imageUrl}}" alt="" style="height: 250px;width:200px;">
+    {{this.username}}
+    {{this.instruments}}
+    <a href="">See more</a>
+    </div>
+    {{/each}} --}}
+
+
+{{#each musiciansFrDB}} 
+<div class="col-md-4">
+  <div class="card">
+    <img
+      class="card-img-top"
+      src="{{this.imageUrl}}"
+      alt=""
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{this.username}}</h5>
+      <p class="card-text"> {{this.instruments}}
+    <a href="profile/{{this._id}}">See more</a></p>
+    </div>
+  </div>
+</div>
+ {{/each}}
+
+
+{{!-- <div>
+    {{#each bandFrDB}} 
+    {{this.imageUrl}}
+    {{this.bandname}}
+    {{this.genre}}
+    {{/each}}
+
+</div> --}}
