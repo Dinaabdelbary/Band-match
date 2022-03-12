@@ -36,11 +36,12 @@
 </p>
 
 <p>{{musician.mediaLinks}}</p>
+{{#if isMyself}}
+<a href="/profile/edit">Update My Profile</a>
 
-<a href="/profile">Update musician</a>
-
+{{else}}
 <button> Connect </button>
-
+{{/if}}
 </ul> 
 
 </aside>
