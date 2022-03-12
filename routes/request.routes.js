@@ -70,5 +70,29 @@ router.get("/connect/accept/:id", (req,res) => {
 
 })
 
+router.get("/connect/decline/:id", (req,res) => {
+    const otherUserId = req.params.id;
+    const currentUserId = req.session.currentUser._id;
+    
+    Musician.findOneAndUpdate(
+        {_id: currentUserId},
+        {
+            //$pull: {pendingRequests: otherUserId},
+            $pull: {notifications: otherUserId}
+        },
+        {new:true}
+    ).then(updatedSelf => {
+        req.session.currentUser = updatedSelf
+        return Musician.findOneAndUpdate(
+            {_id: otherUserId},
+        {
+            $pull: {pendingRequests: currentUserId}
+        },
+        {new:true}
+        )
+    }).then(update => console.log(update)).catch(err => console.log(err))
+
+})
+
 module.exports = router
 
