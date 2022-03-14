@@ -102,5 +102,5 @@ router.get('/listofmusicians', (req, res) => {
 
     Musician.find()
     .then(musicians => res.render("authview/listofmusicians", {musicians}))
-})
+ })
 module.exports = router;
