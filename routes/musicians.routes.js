@@ -65,6 +65,7 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
   const newGenres = genres.split(" ");
   const newDescription = description.split(" ");
 
+
   Musician.findOneAndUpdate(
     { _id: id },
     {
@@ -102,5 +103,5 @@ router.get('/listofmusicians', (req, res) => {
 
     Musician.find()
     .then(musicians => res.render("authview/listofmusicians", {musicians}))
-})
+ })
 module.exports = router;
