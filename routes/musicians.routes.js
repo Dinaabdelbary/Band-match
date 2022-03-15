@@ -66,25 +66,25 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
   const { username, instruments, mediaLinks, genres, description } = req.body;
   console.log("post here", instruments);
 
-  const newMediaLinks = mediaLinks.split(" ");
-  const newGenres = genres.split(" ");
-  const newDescription = description.split(" ");
+  // const newMediaLinks = mediaLinks.split(" ");
+  // const newGenres = genres.split(" ");
+  // const newDescription = description.split(" ");
 
 
   Musician.findOneAndUpdate(
     { _id: id },
     {
       username,
-      instruments: instruments,
-      mediaLinks: newMediaLinks,
-      genres: newGenres,
-      description: newDescription,
+      instruments,
+      mediaLinks,
+      genres,
+      description,
       imageUrl: req.file?.path,
     }
   )
     .then((createdMusicainFrDB) => {
       console.log(createdMusicainFrDB);
-      res.redirect("/musicians/musicianProfile");
+      res.redirect(`/profile/${id}`);
     })
     .catch((error) => console.log(error));
 });

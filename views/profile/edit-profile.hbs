@@ -1,6 +1,6 @@
 <div>
-<h1>Profile {{username}}</h1>
-<form action="/musicians/edit/{{_id}}" method="post" enctype="multipart/form-data">
+<h1>Profile {{musician.username}}</h1>
+<form action="/edit/{{musician._id}}" method="post" enctype="multipart/form-data">
     <label for="username">Enter your name: </label>
     <input type="text" value="{{musician.username}}" name="username" id="username">
     <br>  

@@ -20,6 +20,19 @@ router.get('/discover', (req, res) => {
 
 })
 
+router.get('/discover/search', (req, res)=> {
+  const { instrument } = req.query;
+
+  Musician.find()
+  .then(allMusician => {
+    const musiciansFrDB = allMusician.filter(musician => {
+      const listofInstruments = musician.instruments && musician.instruments.split(" ")
+      return listofInstruments && listofInstruments.includes(instrument)
+    })
+    res.render('lists/discover.hbs', {musiciansFrDB})
+  }).catch(error => console.log(error))
+})
+
 
 
 
