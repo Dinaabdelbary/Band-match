@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <head>
+<head>
+
+
+{{!-- <link rel="stylesheet" href="/stylesheets/style.css" /> --}}
+{{!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet"> --}}
+{{!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> --}}
+<script src="https://kit.fontawesome.com/3efff7e684.js" crossorigin="anonymous"></script>
+
+
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,35 +23,44 @@
    <body>
 
       <div class="topnav">
-       <h2>Band Match</h2>
-      <a href="/">Home</a>
-      <a href="/musicians/listofmusicians">Musicians</a>
-      <a href="/bands/listofbands">Bands</a>
+         <h2>Band Match</h2>
+         <div class="navbar">
+            <div class="urlWraper">
+               <a href="/">Home</a>
+               <a href="/bands/listofbands">Bands</a>
+               <a href="/discover">Discover</a>
 
-      {{#if loggedinuser}} 
-      <a href="/profile/{{loggedinuser._id}}">My Profile</a>
-      <a href="/band-profile">Band profile</a>
+               {{#if loggedinuser}} 
+               <a href="/profile/{{loggedinuser._id}}">My Profile</a>
+               <a href="/band-profile">Band profile</a>
+         
       
-     <form id="logout-form" action="/logout" method="POST">
-         <button class="buttons">Logout</button>
-      </form>
-     
-      {{else}}
-      <a href="/auth/presignup">Sign up</a>
-      <a href="/auth/prelogin">Login</a>
-
-      {{/if}}
-
-      {{!-- {{#if band}}
-      <h2>Welcome, {{ band.bandname }}!</h2>
-
-      {{/if}} --}}
       
-    </div>
-  </div>
+               {{else}}
+               <a href="/auth/presignup">Sign up</a>
+               <a href="/auth/prelogin">Login</a>
+
+               {{/if}}
+            </div>
+
+         {{!-- {{#if band}}
+         <h2>Welcome, {{ band.bandname }}!</h2>
+
+         {{/if}} --}}
+         
+         
+
+         <form id="logoutform" action="/logout" method="POST">
+            <button class="logoutbutton">Logout</button>
+         </form>
+         </div>
+      </div>
 
 
       {{{body}}}
+
+
+
 
       <script src="/js/script.js"></script>
    </body>
