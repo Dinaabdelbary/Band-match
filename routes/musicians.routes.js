@@ -39,11 +39,12 @@ router.get('/profile/edit', (req, res) => {
 
 router.get("/profile/:id", (req, res) => {
   const { id } = req.params
-  Musician.findById(id).populate("notifications")
+  Musician.findById(id).populate("notifications").populate("successfulMatch")
   .then((musicianFrDB) => {
     const isMyself = id === req.session.currentUser._id
     const isPending = musicianFrDB.notifications.includes(req.session.currentUser._id);
     const notifications = isMyself && musicianFrDB.notifications;
+    const successfulMatch = musicianFrDB.successfulMatch;
     const isMatch = musicianFrDB.successfulMatch.includes(req.session.currentUser._id)
     console.log(notifications)
       res.render("profile/musicianProfile.hbs", {
@@ -51,7 +52,8 @@ router.get("/profile/:id", (req, res) => {
         isPending,
         isMyself,
         notifications,
-        isMatch
+        isMatch,
+        successfulMatch
       });
   }).catch(err => console.log(err));
 });
