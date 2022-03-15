@@ -7,90 +7,82 @@ const router = require('express').Router();
 router.get("/connect/:id", (req, res) => {
     const otherUserId = req.params.id;
     const currentUserId = req.session.currentUser._id;
-    
+
     Musician.findOneAndUpdate(
-        {_id: currentUserId},
+        { _id: currentUserId },
         { $push: { pendingRequests: otherUserId } },
         { new: true }
-        )
-    .then(updatedUser => {
-        console.log(updatedUser)
-        req.session.currentUser = updatedUser;
+    )
+        .then(updatedUser => {
+            console.log(updatedUser)
+            req.session.currentUser = updatedUser;
 
-        return Musician.findOneAndUpdate(
-            {_id: otherUserId},
-            { $push: { notifications: currentUserId } },
-            {new: true}
-        )
+            return Musician.findOneAndUpdate(
+                { _id: otherUserId },
+                { $push: { notifications: currentUserId } },
+                { new: true }
+            )
 
-    }).then(update => {
-        res.redirect(`/profile/${otherUserId}` )
-        console.log(update)
-    })
-    .catch(err => console.log(err))
+        }).then(update => {
+            res.redirect(`/profile/${otherUserId}`)
+            console.log(update)
+        })
+        .catch(err => console.log(err))
 })
 
-router.get("/connect/accept/:id", (req,res) => {
+router.get("/connect/accept/:id", (req, res) => {
     const otherUserId = req.params.id;
     const currentUserId = req.session.currentUser._id;
     // I am in the pending of the other
     // the other is in my notifications
 
     Musician.findOneAndUpdate(
-        {_id: currentUserId},
+        { _id: currentUserId },
         {
-            $push: {successfulMatch: otherUserId},
-            $pull: {notifications: otherUserId}
+            $push: { successfulMatch: otherUserId },
+            $pull: { notifications: otherUserId }
         },
-        {new:true}
+        { new: true }
     ).then(updatedSelf => {
         req.session.currentUser = updatedSelf
         return Musician.findOneAndUpdate(
-            {_id: otherUserId},
-        {
-            $push: {successfulMatch: currentUserId},
-            $pull: {pendingRequests: currentUserId}
-        },
-        {new:true}
-        )
-    }).then(update => console.log(update)).catch(err => console.log(err))
-
-
-
-
-    const myModifier = {
-        successfulMatch: [otherUserId],
-        notifications:[]
-
-    }
-    const otherModifier = {
-        pendingRequests: [],
-        successfulMatch: [currentUserId]
-    }
-
+            { _id: otherUserId },
+            {
+                $push: { successfulMatch: currentUserId },
+                $pull: { pendingRequests: currentUserId }
+            },
+            { new: true }
+        ).then(update => {
+            console.log(update)
+            res.redirect(`/profile/${updatedSelf._id}`)
+        })
+    }).catch(err => console.log(err))
 })
 
-router.get("/connect/decline/:id", (req,res) => {
+router.get("/connect/decline/:id", (req, res) => {
     const otherUserId = req.params.id;
     const currentUserId = req.session.currentUser._id;
-    
+
     Musician.findOneAndUpdate(
-        {_id: currentUserId},
+        { _id: currentUserId },
         {
-            //$pull: {pendingRequests: otherUserId},
-            $pull: {notifications: otherUserId}
+            $pull: { notifications: otherUserId }
         },
-        {new:true}
+        { new: true }
     ).then(updatedSelf => {
         req.session.currentUser = updatedSelf
         return Musician.findOneAndUpdate(
-            {_id: otherUserId},
-        {
-            $pull: {pendingRequests: currentUserId}
-        },
-        {new:true}
+            { _id: otherUserId },
+            {
+                $pull: { pendingRequests: currentUserId }
+            },
+            { new: true }
         )
-    }).then(update => console.log(update)).catch(err => console.log(err))
+            .then(update => {
+                console.log(update)
+                res.redirect(`/profile/${updatedSelf._id}`)
+            }).catch(err => console.log(err))
+    })
 
 })
 
