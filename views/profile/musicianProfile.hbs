@@ -77,6 +77,12 @@
 
 </aside>
 </div>
+{{!-- for messages btw musician --}}
+<form action="/message/{{musician._id}}" method="post">
+    <label for="messages"> Message </label>
+    <textarea name="messages"  id="messages" cols="30" rows="8"></textarea>
+    <button type="submit">Send</button>
+</form>
 
 {{#each successfulMatch}}
 <div class="col-md-4">

@@ -28,13 +28,16 @@ const musicianSchema = new Schema(
     mediaLinks: String,
     description: String,
     genres: String,
+    recievedMessage:[String],
+    sendMessage:[String],
 
     pendingRequests: [{ 
         type: Schema.Types.ObjectId, ref: "Musician"
     }],
 
     successfulMatch: [{
-        type: Schema.Types.ObjectId, ref: "Musician"
+        type: Schema.Types.ObjectId, ref: "Musician",
+       
     }],
     
     notifications: [{
