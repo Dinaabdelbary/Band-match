@@ -15,8 +15,10 @@ body{
   align-items: center;
   margin: auto;
   padding-left: 60%;
-  background-color: #EEEBDD;
+  /* background-color: #EEEBDD; */
+  background-color: #2E0001;
   overflow: hidden;
+  border-radius: 4px;
 }
 
 .navbar{
@@ -51,9 +53,31 @@ body{
   transition: 0.4s;
 }
 
+.buttons{
+    background-color: #2E0001;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+  
+  
+}
+
+.buttons:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
 .topnav a:hover {
   background-color: #f2f2f2;
-  color: black;
+  color: #2E0001;
 }
 
 .form{
@@ -76,13 +100,9 @@ text-align: center;
 }
 
 h2{
-  color: #f2f2f2;
+  color: #2E0001;
 }
 
-.logoutbutton{
-  background-color: #460000;
-  color: #EEEBDD; 
-}
 
 .footer {
   background: #460000;
