@@ -56,7 +56,9 @@ router.get("/profile/:id", (req, res) => {
         isMyself,
         notifications,
         isMatch,
-        successfulMatch: musicianFrDB.successfulMatch
+        successfulMatch: musicianFrDB.successfulMatch,
+        messages: musicianFrDB.recievedMessage
+
       });
     }).catch(err => console.log(err));
 });
@@ -80,6 +82,7 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
       genres,
       description,
       imageUrl: req.file?.path,
+
     }
   )
     .then((createdMusicainFrDB) => {
@@ -92,29 +95,18 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
 router.post("/message/:id", (req, res) =>{
   const { messages } = req.body
   const { id } = req.params;
-  Musician.findById(id)
-  .then(musician => {
-    console.log(musician)
-    console.log(messages)
 
-      Musician.findOneAndUpdate(
-          {
-              _id: id
-          },
-          {
-              ...musician,
-              description: "hello",
-              // receivedMessage: [...musician.recievedMessage, messages]
-              recievedMessage: ["hello world"]
-          }
-      )
-      .then(updatedMusician => {
-        console.log(updatedMusician)
-      res.send("ok")
-      })
-  })
+  Musician.findOneAndUpdate(
+    { _id: id },
+    { $push: { recievedMessage: messages } },
+    { new: true }
+).then(updatedMusician => {
+  console.log(updatedMusician)
+  res.send('ok')
+})
   .catch(err => console.log(err)) 
 })
+
 
 router.get('/listofmusicians', (req, res) => {
 
