@@ -56,7 +56,9 @@ router.get("/profile/:id", (req, res) => {
         isMyself,
         notifications,
         isMatch,
-        successfulMatch: musicianFrDB.successfulMatch
+        successfulMatch: musicianFrDB.successfulMatch,
+        messages: musicianFrDB.recievedMessage
+
       });
     }).catch(err => console.log(err));
 });
@@ -80,6 +82,7 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
       genres,
       description,
       imageUrl: req.file?.path,
+
     }
   )
     .then((createdMusicainFrDB) => {
@@ -89,20 +92,21 @@ router.post("/edit/:id", fileUploader.single("image"), (req, res) => {
     .catch((error) => console.log(error));
 });
 
+router.post("/message/:id", (req, res) =>{
+  const { messages } = req.body
+  const { id } = req.params;
 
-// router.post('/edit/:id', fileUploader.single('image'), (req, res) => {
-//     const {id} = req.params
-//     const { username, instruments, mediaLinks, genres, description } = req.body
-//     console.log('post here',instruments,)
-//     let newInstruments  = instruments.split(" ");
+  Musician.findOneAndUpdate(
+    { _id: id },
+    { $push: { recievedMessage: messages } },
+    { new: true }
+).then(updatedMusician => {
+  console.log(updatedMusician)
+  res.send('ok')
+})
+  .catch(err => console.log(err)) 
+})
 
-//     Musician.findOneAndUpdate({_id: id}, { username, instruments :newInstruments, mediaLinks, genres, description,  imageUrl: req.file?.path })
-//         .then(createdMusicainFrDB => {
-//             console.log(createdMusicainFrDB)
-//             res.redirect('/musicians/musicianProfile')
-//         })
-//         .catch(error => console.log(error))
-// })
 
 router.get('/listofmusicians', (req, res) => {
 

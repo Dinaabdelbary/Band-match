@@ -77,8 +77,22 @@
 
 </aside>
 </div>
+{{!-- for messages btw musician --}}
+<form action="/message/{{musician._id}}" method="post">
+    <label for="messages"> Comment </label>
+    <textarea name="messages"  id="messages" cols="40" rows="4"></textarea>
+    <button type="submit">Send</button>
+</form>
 
+{{#each messages}}
+{{this}}
+{{/each}}
+
+
+<div>
+    <h3>connnections</h3>
 {{#each successfulMatch}}
+
 <div class="col-md-4">
   <div class="card">
     <img
@@ -94,4 +108,4 @@
   </div>
 </div>
 {{/each}}
-
+</div>
