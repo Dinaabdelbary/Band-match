@@ -45,7 +45,7 @@ body{
 
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: #2E0001;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -76,7 +76,8 @@ body{
 
 
 .topnav a:hover {
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
+  background-color: #E9DAC1;
   color: #2E0001;
 }
 
