@@ -17,10 +17,10 @@
     </div>
 
 
-
+<div class="row">
 {{#each musiciansFrDB}} 
-<div class="col-md-4">
-  <div class="card">
+<div class="col">
+  <div class="card h-100">
     <img
       class="card-img-top"
       src="{{this.imageUrl}}"
@@ -29,12 +29,16 @@
     <div class="card-body">
       <h5 class="card-title">{{this.username}}</h5>
       <p class="card-text"> {{this.instruments}}
-    <a href="profile/{{this._id}}">See more</a></p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">
+          <a href="{{this._id}}">See more</a></p>
+      </small>
     </div>
   </div>
 </div>
  {{/each}}
-
+</div>
 
 {{!-- <div>
     {{#each bandFrDB}} 
