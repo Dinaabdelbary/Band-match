@@ -102,7 +102,7 @@ router.post("/message/:id", (req, res) =>{
     { new: true }
 ).then(updatedMusician => {
   console.log(updatedMusician)
-  res.send('ok')
+  res.redirect(`/profile/${id}`)
 })
   .catch(err => console.log(err)) 
 })
@@ -110,7 +110,8 @@ router.post("/message/:id", (req, res) =>{
 
 router.get('/listofmusicians', (req, res) => {
 
-  Musician.find()
-    .then(musicians => res.render("authview/listofmusicians", { musicians }))
-})
+    Musician.find()
+    .then(musicians => res.render("authview/listofmusicians", {musicians}))
+ })
+
 module.exports = router;

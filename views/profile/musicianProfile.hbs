@@ -1,16 +1,16 @@
 
-<div class="side-bar">
-    <aside>
+<div class="profile">
 
-<h1>Musician Profile</h1>
+ <div class="box-one">
 
 <div class="userimg">
-    <img src="{{musician.imageUrl}}" alt="{{username}}" srcset=""style="height:250px;width:200px;">
+    <img src="{{musician.imageUrl}}" alt="{{username}}" srcset=""style="height:200px;width:200px;">
 </div>
+
 <ul>
     {{#unless isMyself}}
 <h2>{{musician.username}}</h2>
-    {{/unless}}
+     {{/unless}}
 
 <br>
 
@@ -24,30 +24,36 @@
 {{/each}}
 {{/if}}
 
-<p>
+</div>
+{{!-- <p>
     {{#each musician.bands}} 
     {{this}}
     {{/each}}
-</p>
+</p> --}}
+<div class="box-two">
+<div>
+    <h6>Instruments:</h6>
+<p> {{ musician.instruments}}</p>
+</div>
 
-<p>
-    {{ musician.instruments}} 
-   
-    
-</p>
+<div>
+    <h6>Genre:</h6>
+    <p>{{ musician.genres}} </p>
+</div>
 
-<p>
-    {{#each musician.genres}} 
-    {{this}}
-    {{/each}}
-</p>
-<p>
-    {{#each musician.mediaLinks}} 
-    {{this}}
-    {{/each}}
-</p>
+<div>
+    <h6>Media Links:</h6>
+    <p>{{ musician.mediaLinks}}</p>
+</div>
 
-<p>{{musician.mediaLinks}}</p>
+<div>
+    <h6>Description:</h6>
+    <p>{{musician.description}}</p>
+</div>
+
+</div>
+
+<div class="box-three">
 
 {{#if isMyself}}
 <a href="/profile/edit">Update My Profile</a>
@@ -71,22 +77,30 @@
 </form>
 {{/unless}}
 
-
 {{/if}}
-</ul> 
 
-</aside>
-</div>
-{{!-- for messages btw musician --}}
 <form action="/message/{{musician._id}}" method="post">
     <label for="messages"> Comment </label>
     <textarea name="messages"  id="messages" cols="40" rows="4"></textarea>
     <button type="submit">Send</button>
 </form>
 
+
 {{#each messages}}
-{{this}}
+<ul>
+    <li>{{this}}</li>
+</ul>
+
 {{/each}}
+
+
+</div>
+
+
+</div>
+
+{{!-- for messages btw musician --}}
+
 
 
 <div>
@@ -102,10 +116,40 @@
     />
     <div class="card-body">
       <h5 class="card-title">{{this.username}}</h5>
-      <p class="card-text"> {{this.instruments}}
-    <a href="{{this._id}}">See more</a></p>
+      <p class="card-text">Plays: {{this.instruments}}
+    </div>
+     <div class="card-footer">
+      <small class="text-muted">
+          <a href="{{this._id}}">See more</a></p>
+      </small>
     </div>
   </div>
 </div>
+
 {{/each}}
 </div>
+
+
+
+<div>
+    <h3>Test</h3>
+{{#each successfulMatch}}
+
+<div class="card-deck">
+  <div class="card w-50">
+    <img  src="{{this.imageUrl}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{this.username}}</h5>
+      <p class="card-text">Plays: {{this.instruments}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">
+          <a href="{{this._id}}">See more</a></p>
+      </small>
+    </div>
+  </div>
+
+{{/each}}
+</div>
+
+
