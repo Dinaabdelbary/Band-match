@@ -110,7 +110,8 @@ router.post("/message/:id", (req, res) =>{
 
 router.get('/listofmusicians', (req, res) => {
 
-  Musician.find()
-    .then(musicians => res.render("authview/listofmusicians", { musicians }))
-})
+    Musician.find()
+    .then(musicians => res.render("authview/listofmusicians", {musicians}))
+ })
+
 module.exports = router;
