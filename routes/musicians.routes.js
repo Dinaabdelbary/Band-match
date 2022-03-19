@@ -102,7 +102,7 @@ router.post("/message/:id", (req, res) =>{
     { new: true }
 ).then(updatedMusician => {
   console.log(updatedMusician)
-  res.send('ok')
+  res.redirect(`/profile/${id}`)
 })
   .catch(err => console.log(err)) 
 })
