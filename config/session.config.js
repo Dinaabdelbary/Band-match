@@ -18,7 +18,7 @@ module.exports = app => {
 
             },
             store: MongoStore.create({
-                mongoUrl: 'mongodb://127.0.0.1/band-match',
+                mongoUrl:  process.env.MONGODB_URI || "mongodb://127.0.0.1/band-match",
                 ttl: 60 * 60 * 24
             })
         })
