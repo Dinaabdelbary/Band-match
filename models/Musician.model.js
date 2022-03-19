@@ -28,8 +28,8 @@ const musicianSchema = new Schema(
     mediaLinks: String,
     description: String,
     genres: String,
-    recievedMessage:[String],
-    sendMessage:[String],
+    recievedMessage:[Schema.Types.Mixed],
+    sendMessage:[Schema.Types.Mixed],
 
     pendingRequests: [{ 
         type: Schema.Types.ObjectId, ref: "Musician"
