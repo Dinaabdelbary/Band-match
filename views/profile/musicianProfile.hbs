@@ -79,16 +79,18 @@
 
 {{/if}}
 
+
+{{#unless isMyself}}
 <form action="/message/{{musician._id}}" method="post">
     <label for="messages"> Comment </label>
     <textarea name="messages"  id="messages" cols="40" rows="4"></textarea>
     <button type="submit">Send</button>
 </form>
-
+{{/unless}}
 
 {{#each messages}}
 <ul>
-    <li>{{this}}</li>
+    <li> {{this.username}}: {{this.messages}}</li>
 </ul>
 
 {{/each}}
@@ -105,10 +107,10 @@
 
 <div>
     <h3>connnections</h3>
+    <div class="row">
 {{#each successfulMatch}}
-
-<div class="col-md-4">
-  <div class="card">
+<div class="col">
+  <div class="card h-100">
     <img
       class="card-img-top"
       src="{{this.imageUrl}}"
@@ -128,28 +130,4 @@
 
 {{/each}}
 </div>
-
-
-
-<div>
-    <h3>Test</h3>
-{{#each successfulMatch}}
-
-<div class="card-deck">
-  <div class="card w-50">
-    <img  src="{{this.imageUrl}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{this.username}}</h5>
-      <p class="card-text">Plays: {{this.instruments}}</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">
-          <a href="{{this._id}}">See more</a></p>
-      </small>
-    </div>
-  </div>
-
-{{/each}}
 </div>
-
-

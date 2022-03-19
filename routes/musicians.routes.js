@@ -98,7 +98,7 @@ router.post("/message/:id", (req, res) =>{
 
   Musician.findOneAndUpdate(
     { _id: id },
-    { $push: { recievedMessage: messages } },
+    { $push: { recievedMessage: {username: req.session.currentUser.username, messages} } },
     { new: true }
 ).then(updatedMusician => {
   console.log(updatedMusician)
